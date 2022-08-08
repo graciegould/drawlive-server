@@ -103,7 +103,7 @@ io.on('connection', (socket) => {
     clientData[data.id].username = data.username;
     socket.broadcast.emit("usernameChange", data)
     let str = data.username+" has connected" 
-   io.emit("alert",str )
+   socket.broadcast.emit("alert",str )
   })
   socket.on("draw", (data) => {
    socket.broadcast.emit("sendDraw", data);
@@ -153,4 +153,3 @@ io.on('connection', (socket) => {
       io.emit("deleteClient", socket.id)
   })
 });
-

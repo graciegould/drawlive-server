@@ -100,7 +100,7 @@ io.on('connection', (socket) => {
     socket.broadcast.to(data.to).emit("alert", str)
   })
   socket.on("changeUsername", (data) => {
-    clientData[data.id].username = data.username;
+    clientData[socket.id].username = data.username;
     socket.broadcast.emit("usernameChange", data)
     let str = data.username+" has connected" 
    socket.broadcast.emit("alert",str )
